@@ -49,6 +49,4 @@ public class HelloControllerTest {
                 .andExpect(jsonPath("$.name", Matchers.is(name)))
                 .andExpect(jsonPath("$.amount", Matchers.is(amount)));
     }
-
-
 }
