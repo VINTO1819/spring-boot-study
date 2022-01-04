@@ -28,6 +28,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     implementation 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'junit:junit:4.13.1'
 
     testCompileOnly("org.projectlombok:lombok")
     testCompileOnly("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
