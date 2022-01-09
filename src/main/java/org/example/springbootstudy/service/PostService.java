@@ -8,6 +8,9 @@ import org.example.springbootstudy.facade.PostFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class PostService {
@@ -19,4 +22,7 @@ public class PostService {
         return CreateNewPostResponseDto.fromEntity(savedEntity);
     }
 
+    public List<PostDto> getAll() {
+        return postRepository.findAll().stream().map(PostDto::fromEntity).collect(Collectors.toList());
+    }
 }
