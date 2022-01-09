@@ -29,4 +29,12 @@ public class PostEntity {
         this.content = content;
         this.author = author;
     }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
 }
