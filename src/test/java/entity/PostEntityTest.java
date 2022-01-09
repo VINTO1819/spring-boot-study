@@ -1,14 +1,12 @@
 package entity;
 
 import org.example.springbootstudy.Application;
-import org.example.springbootstudy.controller.HelloController;
-import org.example.springbootstudy.domain.entity.PostEntity;
-import org.example.springbootstudy.domain.repository.PostRepository;
+import org.example.springbootstudy.domain.post.entity.PostEntity;
+import org.example.springbootstudy.domain.post.repository.PostRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
