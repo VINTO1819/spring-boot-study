@@ -31,4 +31,10 @@ public class PostController {
     public PostDto update(@PathVariable("postId") Long postId, @RequestBody UpdatePostDto dto) {
         return postService.update(postId, dto);
     }
+
+    @DeleteMapping("{postId}")
+    public void delete(@PathVariable("postId") Long postId) {
+        postService.delete(postId);
+    }
+
 }

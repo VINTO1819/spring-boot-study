@@ -38,4 +38,8 @@ public class PostService {
         return PostDto.fromEntity(post);
     }
 
+    public void delete(Long postId) {
+        postRepository.deleteById(postId);
+    }
+
 }
