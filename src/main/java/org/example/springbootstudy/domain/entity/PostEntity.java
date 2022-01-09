@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Setter
 @Getter
 @NoArgsConstructor
 public class PostEntity {
@@ -29,5 +28,13 @@ public class PostEntity {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updateContent(String content) {
+        this.content = content;
     }
 }
