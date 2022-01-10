@@ -1,7 +1,6 @@
 package org.example.springbootstudy.domain.post.service;
 
 import lombok.AllArgsConstructor;
-import org.example.springbootstudy.domain.dto.*;
 import org.example.springbootstudy.domain.post.entity.PostEntity;
 import org.example.springbootstudy.domain.post.presentation.dto.CreateNewPostRequestDto;
 import org.example.springbootstudy.domain.post.presentation.dto.CreateNewPostResponseDto;
