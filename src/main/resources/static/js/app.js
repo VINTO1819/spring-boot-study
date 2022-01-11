@@ -7,6 +7,9 @@ const app = {
             context.savePost()
         })
 
+        $('#btn-edit').on("click", function() {
+            context.editPost()
+        })
     },
 
     savePost: function() {
@@ -25,6 +28,39 @@ const app = {
         }).done(() => {
             alert('글이 등록되었습니다.')
             window.location.href = '/'
+        }).fail((err) => {
+            alert(JSON.stringify(err))
+        })
+    },
+    editPost: function () {
+        const id = $('#editTitle')[0].innerText.split(': ')[1]
+        console.log(id)
+
+        const data = {
+            title: $("#title").val(),
+            content: $("#content").val()
+        }
+
+        $.ajax({
+            type: 'PATCH',
+            url: `/api/posts/${id}`,
+            dataType: 'JSON',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(() => {
+            alert('글이 수정되었습니다.')
+            window.location.href = '/'
+        }).fail((err) => {
+            alert(JSON.stringify(err))
+        })
+    },
+    deletePost: function(id) {
+        $.ajax({
+            type: 'DELETE',
+            url: `/api/posts/${id}`
+        }).done(() => {
+            alert('글이 삭제되었습니다.')
+            window.location.reload()
         }).fail((err) => {
             alert(JSON.stringify(err))
         })

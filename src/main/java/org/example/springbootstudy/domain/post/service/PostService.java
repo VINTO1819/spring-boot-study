@@ -37,6 +37,11 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
+    public PostDto getById(Long id) {
+        return PostDto.fromEntity(postRepository.getById(id));
+    }
+
+    @Transactional
     public PostDto update(Long postId, UpdatePostDto dto) {
         Optional<PostEntity> postOptional = postRepository.findById(postId);
 
