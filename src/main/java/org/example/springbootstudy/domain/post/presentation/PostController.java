@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @AllArgsConstructor
-@RequestMapping("posts")
+@RequestMapping("api/posts")
 public class PostController {
     private final PostService postService;
 

@@ -1,7 +1,6 @@
 package org.example.springbootstudy.domain.post.service;
 
 import lombok.AllArgsConstructor;
-import org.example.springbootstudy.domain.dto.*;
 import org.example.springbootstudy.domain.post.entity.PostEntity;
 import org.example.springbootstudy.domain.post.presentation.dto.CreateNewPostRequestDto;
 import org.example.springbootstudy.domain.post.presentation.dto.CreateNewPostResponseDto;
@@ -10,6 +9,7 @@ import org.example.springbootstudy.domain.post.presentation.dto.UpdatePostDto;
 import org.example.springbootstudy.domain.post.repository.PostRepository;
 import org.example.springbootstudy.domain.post.facade.PostFacade;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +30,18 @@ public class PostService {
         return postRepository.findAll().stream().map(PostDto::fromEntity).collect(Collectors.toList());
     }
 
+    @Transactional(readOnly= true)
+    public List<PostDto> getAllByDesc() {
+        return postRepository.getAllDesc().stream()
+                .map(PostDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    public PostDto getById(Long id) {
+        return PostDto.fromEntity(postRepository.getById(id));
+    }
+
+    @Transactional
     public PostDto update(Long postId, UpdatePostDto dto) {
         Optional<PostEntity> postOptional = postRepository.findById(postId);
 
