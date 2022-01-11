@@ -9,6 +9,7 @@ import org.example.springbootstudy.domain.post.presentation.dto.UpdatePostDto;
 import org.example.springbootstudy.domain.post.repository.PostRepository;
 import org.example.springbootstudy.domain.post.facade.PostFacade;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,6 +28,13 @@ public class PostService {
 
     public List<PostDto> getAll() {
         return postRepository.findAll().stream().map(PostDto::fromEntity).collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly= true)
+    public List<PostDto> getAllByDesc() {
+        return postRepository.getAllDesc().stream()
+                .map(PostDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     public PostDto update(Long postId, UpdatePostDto dto) {
