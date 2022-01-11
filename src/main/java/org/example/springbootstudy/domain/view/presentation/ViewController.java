@@ -25,6 +25,13 @@ public class ViewController {
         return "new-post";
     }
 
+    @GetMapping("/posts/{id}")
+    public String inspectPost(@PathVariable("id") Long postId, Model model) {
+        model.addAttribute("post", postService.getById(postId));
+
+        return "inspect-post";
+    }
+
     @GetMapping("/posts/{id}/edit")
     public String editPost(@PathVariable("id") Long postId, Model model) {
         model.addAttribute("post", postService.getById(postId));
