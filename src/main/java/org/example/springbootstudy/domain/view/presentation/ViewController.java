@@ -12,5 +12,10 @@ public class ViewController {
         return "index";
     }
 
+    @GetMapping("/posts/save")
+    public String getNewPostPage() {
+        return "new-post";
+    }
+
 
 }
